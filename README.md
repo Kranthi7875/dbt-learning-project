@@ -1,15 +1,37 @@
-Welcome to your new dbt project!
+# dbt Jaffle Shop Analytics Project
 
-### Using the starter project
+This project demonstrates analytics engineering best practices using dbt and BigQuery.
 
-Try running the following commands:
-- dbt run
-- dbt test
+## Overview
+The goal of this project is to transform raw Jaffle Shop and Stripe data into clean,
+analytics-ready fact and dimension tables using dbt.
 
+## Data Sources
+- `dbt-tutorial.jaffle_shop.customers`
+- `dbt-tutorial.jaffle_shop.orders`
+- `dbt-tutorial.stripe.payment`
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](https://getdbt.com/community) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## Models
+### Staging
+- `stg_jaffle_shop__customers`
+- `stg_jaffle_shop__orders`
+- `stg_stripe__payments` (amount normalized from cents to dollars)
+
+### Marts
+- `fct_orders` — order-level fact table with payment amounts
+- `dim_customers` — customer dimension with lifetime value
+
+## Key Business Metric
+- **Customer Lifetime Value**
+- Validated total LTV = **$1,672**
+
+## Tools Used
+- dbt Cloud
+- BigQuery
+- GitHub
+
+## Key Concepts Demonstrated
+- Source definitions and staging layers
+- Fact vs dimension modeling
+- Unit normalization (cents → dollars)
+- Git-based development workflow with pull requests
