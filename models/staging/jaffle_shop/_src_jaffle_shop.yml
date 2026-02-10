@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: jaffle_shop
-    database: dbt-tutorial
-    schema: jaffle_shop
+    database: dbt-tutorial   # ✅ BigQuery PROJECT
+    schema: jaffle_shop      # ✅ BigQuery DATASET
     tables:
       - name: customers
       - name: orders
